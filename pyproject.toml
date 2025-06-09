@@ -15,4 +15,5 @@ dependencies = [
     "diff-match-patch>=20241021",
     "thefuzz>=0.22.1",
     "fuzzysearch>=0.7.3",
+    "langchain-google-genai>=2.1.5",
 ]

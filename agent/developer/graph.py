@@ -3,7 +3,7 @@ import os
 import re
 from typing import List
 from diff_match_patch import diff_match_patch
-from langchain_anthropic import ChatAnthropic
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import AnyMessage, AIMessage, HumanMessage
 from langchain_core.output_parsers import StrOutputParser, JsonOutputParser
 from langgraph.constants import END, START
@@ -20,15 +20,15 @@ implement_diffs_prompt = markdown_to_prompt_template("agent/developer/prompts/im
 implement_new_file_prompt = markdown_to_prompt_template("agent/developer/prompts/implement_new_file.md")
 
 # Create the runnable with the prompt and model
-extract_diff_runnable = extract_diffs_tasks_prompt | ChatAnthropic(model="claude-sonnet-4-20250514") | StrOutputParser()
-edit_according_to_diff_runnable = implement_diffs_prompt | ChatAnthropic(model="claude-sonnet-4-20250514") | StrOutputParser()
-create_new_file_runnable = implement_new_file_prompt | ChatAnthropic(model="claude-sonnet-4-20250514") | StrOutputParser()
+extract_diff_runnable = extract_diffs_tasks_prompt | ChatGoogleGenerativeAI(model="gemini-2.5-pro-preview-06-05") | StrOutputParser()
+edit_according_to_diff_runnable = implement_diffs_prompt | ChatGoogleGenerativeAI(model="gemini-2.5-pro-preview-06-05") | StrOutputParser()
+create_new_file_runnable = implement_new_file_prompt | ChatGoogleGenerativeAI(model="gemini-2.5-pro-preview-06-05") | StrOutputParser()
 
 # Load the get clear implementation plan prompt
 get_clear_implementation_plan_prompt = markdown_to_prompt_template("agent/developer/prompts/get_clear_implementation_plan.md")
 
 # Create the runnable with the prompt and model
-get_clear_implementation_plan_runnable = get_clear_implementation_plan_prompt | ChatAnthropic(model="claude-sonnet-4-20250514").bind_tools(search_tools+codemap_tools)
+get_clear_implementation_plan_runnable = get_clear_implementation_plan_prompt | ChatGoogleGenerativeAI(model="gemini-2.5-pro-preview-06-05").bind_tools(search_tools+codemap_tools)
 dmp = diff_match_patch()
 def start_implementing(state: SoftwareDeveloperState):
     return {
