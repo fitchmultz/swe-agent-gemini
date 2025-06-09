@@ -11,7 +11,7 @@ Welcome to the LangTalks community! We're excited to have you contribute to the 
 - Python 3.12+
 - uv (Python package manager)
 - Git
-- Anthropic API key (for testing)
+- Google API key (for testing)
 
 ### Development Setup
 

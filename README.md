@@ -200,7 +200,7 @@ Final Result: Modified codebase
 
 - Python 3.12+
 - uv (Python package manager)
-- Anthropic API key (Claude Sonnet 4)
+- Google API key (Gemini 2.5 Pro)
 
 ## ⚡ Quick Start
 
@@ -217,7 +217,7 @@ uv sync
 
 # Create environment file
 cp .env.example .env
-# Add your Anthropic API key to .env
+# Add your Google API key to .env
 ```
 
 3. **Run the agent**
@@ -383,7 +383,7 @@ uv run pytest
 ### Dependencies
 - **LangGraph**: Multi-agent workflow orchestration
 - **LangChain**: AI integration and tool management
-- **Anthropic**: Claude Sonnet 4 for intelligent reasoning
+- **Google Gemini**: Gemini 2.5 Pro for intelligent reasoning
 - **Tree-sitter**: Robust code parsing and analysis
 - **Pydantic**: Type-safe data validation and serialization
 
@@ -407,7 +407,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - Built with [LangGraph](https://langchain-ai.github.io/langgraph/) for reliable agent workflows
-- Powered by [Anthropic Claude](https://www.anthropic.com/) for intelligent reasoning
+- Powered by [Google Gemini](https://deepmind.google/technologies/gemini/) for intelligent reasoning
 - Uses [tree-sitter](https://tree-sitter.github.io/) for robust code parsing
 - Inspired by advances in AI-powered software development
 
